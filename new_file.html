@@ -1,0 +1,43 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+<meta charset="utf8" />  
+<title>Html 模糊效果</title>  
+<style type="text/css">  
+
+  
+</style>  
+</head>  
+  
+<body>  
+ 
+</body> 
+<script type="text/javascript">
+	function create_barrage(id,run_flag){
+            	
+            		$.each(arr, function(i) {	
+						(function(i) {
+							setTimeout(function() {
+								var _lable = $("<div style='id=div" + i + ";white-space:nowrap;right:0rem;top:0rem;color:#FFFFFF;background: rgba(0, 0, 0, 0.30);border-radius: 12px ;padding:0.13rem;position:absolute;z-index: 999;font-size: 0.24rem;line-height: 0.24rem;'>" + arr[i].speak + "</div>");
+
+								$("#"+id).append(_lable);
+								var width = $("#"+id).innerWidth() * 2 / 100 
+                                console.log(width)
+								var height = Math.random() * ($("#"+id).innerHeight()-$(_lable).innerHeight()) * 2 / 100
+                                console.log(height)
+								$(_lable).css("top", height + "rem")
+								$(_lable).animate({
+									"right": width + "rem"
+								}, 3000, function() {
+									$(this).remove();
+								})
+								
+							}, (i + 1) * 1000)
+						})(i)
+
+					})
+            
+            		
+            }
+</script>
+</html>  
