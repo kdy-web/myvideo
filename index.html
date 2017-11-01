@@ -75,6 +75,7 @@
 			border-radius: 8px;
 			background: rgba(0, 0, 0, 0.3);
 			position: absolute;
+			overflow: hidden;
 			z-index: 2;
 			top: 0;
 			left: 0;
@@ -98,7 +99,7 @@
 			z-index: 1;
 		}
 		
-		.video_img_stop .video_circle img {
+		 .video_circle img {
 			width: 0.731rem;
 			height: 0.883rem;
 			position: absolute;
@@ -376,7 +377,7 @@
 		
 		.set_box input[type="range"] {
 			float: right;
-			width: 0.3rem;
+			width: 0.32rem;
 			position: relative;
 			top: 0.03rem;
 			margin-right: 0.24rem;
@@ -542,6 +543,7 @@
 			width: 0.12rem;
 			margin-top: -5px;
 			position: relative;
+			
 			top: 0.043rem;
 			/*使滑块超出轨道部分的偏移量相等*/
 			background: #ffffff;
@@ -598,7 +600,7 @@
 
 					</div>
 				</div>
-				<video class="media" id="small_video" x5-video-player-type="h5" x-webkit-airplay="true" playsinline webkit-playsinline="true" src="img/VID_20171031_182625.mp4" style="width:41.6%;height: 5.1rem;position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;border-radius:0 ;" /></video>
+				<video class="media" preload="auto" id="small_video" x5-video-player-type="h5" x-webkit-airplay="true" playsinline webkit-playsinline="true" src="img/VID_20171031_182625.mp4" style="width:41.6%;height: 5.1rem;position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;border-radius:0 ;" /></video>
 			</div>
 		</div>
 		<div class="content_box">
@@ -722,7 +724,8 @@
 			]
 			//弹幕开关设置  让播放和暂停  一致
 			document.getElementById("stop_range").onchange = function() {
-				document.getElementById("run_range").value = document.getElementById("stop_range").value
+				document.getElementById("run_range").value = document.getElementById("stop_range").value;
+				                                 
 			}
 
 			var json = {};
@@ -738,9 +741,30 @@
 
 				$(this).parent(".video_img_stop").hide().siblings("#video_img_run").show();
 				document.getElementsByClassName("media")[0].play();
+                 if(document.getElementById("run_range").value==1){
+                 	creat_barrae("#video_main_box","run_range");
+                 }
+				
 
-				$.each(arr, function(i) {
+				document.getElementById("run_range").onchange = function() {
+					if(document.getElementById("run_range").value == 0) {
 
+						clear_barrage("#video_main_box","run_range");
+						clearTimeout(json.timer);
+
+					} else {
+						creat_barrae("#video_main_box","run_range")
+					}
+
+					document.getElementById("stop_range").value = document.getElementById("run_range").value
+				}
+
+			});
+             
+             function creat_barrae(id,rang_id){
+               console.log($(id))
+             	$.each(arr, function(i) {
+                       
 					//判断滑轨值
 
 					json.timer = setTimeout(function() {
@@ -755,8 +779,8 @@
 							color: 'white', //颜色,默认白色 
 							old_ie_color: 'white', //ie低版兼容色,不能与网页背景相同,默认黑色 
 						}
-						if(document.getElementById("run_range").value == 1) {
-							$('#video_main_box').barrager(item);
+						if(document.getElementById(rang_id).value == 1) {
+							$(id).barrager(item);
 							clearTimeout(json.timer);
 						} else {
 							clearTimeout(json.timer);
@@ -765,38 +789,9 @@
 					}, i * 1000)
 
 				});
+             }
 
-				document.getElementById("run_range").onchange = function() {
-					if(document.getElementById("run_range").value == 0) {
 
-						clear_barrage();
-						clearTimeout(json.timer);
-
-					} else {
-						$.each(arr, function(i) {
-
-							timer = setTimeout(function() {
-								var item = {
-									img: 'img/haha.gif', //图片 
-									info: arr[i].speak, //文字 
-									//链接 
-									close: false, //显示关闭按钮 
-									href: "javascript:void(0)",
-									speed: i, //延迟,单位秒,默认6 
-									bottom: 30 + i * 20, //距离底部高度,单位px,默认随机 
-									color: 'white', //颜色,默认白色 
-									old_ie_color: 'white', //ie低版兼容色,不能与网页背景相同,默认黑色 
-								}
-								$('#video_main_box').barrager(item);
-							}, (i + 1) * 1000)
-
-						})
-					}
-
-					document.getElementById("stop_range").value = document.getElementById("run_range").value
-				}
-
-			});
 
 			function clear_barrage() {
 
@@ -804,49 +799,61 @@
 				console.log($('.barrage'))
 			}
 			$("#to_big").click(function() {
+                 clearTimeout(json.timer);
+				var width = $("body").width() * 2 / 100;
+				var height = $("body").height() * 2 / 100;
 
-				var width = $(window).width() * 2 / 100;
-				var height = $(window).height() * 2 / 100;
-
-				var video = "<div id='video_full_box'><video class='media' x5-video-player-type='h5' x-webkit-airplay='true' playsinline webkit-playsinline  src='img/VID_20171031_182625.mp4' style='position:absolute;top:0;left:0.01rem;width:7.5rem;height:13.34rem;border-radius:0 ;'/></video>" +
+				var video = "<div id='video_full_box'><video class='media' preload='auto' x5-video-player-type='h5' x-webkit-airplay='true' playsinline webkit-playsinline  src='img/VID_20171031_182625.mp4' style='position:absolute;top:0;left:0.01rem;width:7.5rem;height:13.34rem;border-radius:0 ;z-index:9997;'/></video>" +
 					"<div class='full_box_bottom'>" +
-					"<div style='width:0.8rem;height:0.8rem;background: rgba(255,255,255,0.30);border-radius:50%;position:relative;float:left;'><img src='img/Group 14.png' style='width:0.29rem;height:0.29rem;position:absolute;top:0;bottom:0;right:0;left:0;margin:auto;'/></div>" +
+					"<div id='stop_btn' style='width:0.8rem;height:0.8rem;background: rgba(255,255,255,0.30);border-radius:50%;position:relative;float:left;'><img src='img/Group 14.png'  style='width:0.29rem;height:0.29rem;position:absolute;top:0;bottom:0;right:0;left:0;margin:auto;'/></div>" +
 					"<span style='font-family: PingFangSC-Regular;font-size: 0.28rem;color: #FFFFFF;letter-spacing: 0;float:left;margin-left:0.22rem;position:relative;top:0.2rem'>4:30</span>" +
 					"<div style='float:right;width:0.8rem;height:0.4rem;margin-right:0.5rem;margin-top:0.75rem;'><input type='range' max='1' min='0' step='1' id='big_range' /><img src='img/Group 11.png' id='close_video' style='width:0.4rem;height:0.4rem;float:right;'/></div></div></div>"
 
-				$("body").append(video)
+				$("body").append(video);
 				document.getElementById("video_full_box").children[0].play();
-
+                document.getElementById("big_range").value= document.getElementById("run_range").value
 				$('#video_full_box').css({
 					"border-radius": "0",
 					"position": "fixed",
-					"width": width + "rem",
-					"height": height + "rem",
+					"width": "100%",
+					"height": "100%",
 					"background": "transparent",
 					"z-index": "10000",
 					"top": 0,
 					"left": 0
 				})
-				$.each(arr, function(i) {
+				creat_barrae('#video_full_box',"big_range");
+				document.getElementById("big_range").onchange = function() {
+					if(document.getElementById("big_range").value == 0) {
 
-					timer = setTimeout(function() {
-						var item = {
-							img: 'img/haha.gif', //图片 
-							info: arr[i].speak, //文字 
-							//链接 
-							close: false, //显示关闭按钮 
-							href: "javascript:void(0)",
-							speed: arr[i].speed, //延迟,单位秒,默认6 
-							bottom: 120 + i * 70, //距离底部高度,单位px,默认随机 
-							color: 'white', //颜色,默认白色 
-							old_ie_color: 'white', //ie低版兼容色,不能与网页背景相同,默认黑色 
-						}
-						$('#video_full_box').barrager(item);
-					}, (i + 1) * 1000)
+						clear_barrage("#video_full_box","big_range");
+						clearTimeout(json.timer);
 
-				})
-				$('#close_video').click(function() {
+					} else {
+						creat_barrae("#video_full_box","big_range")
+					}
+
+					document.getElementById("run_range").value = document.getElementById("big_range").value
+					document.getElementById("stop_range").value = document.getElementById("big_range").value
+				}
+				
+				
+				$("#stop_btn").click(function(){
+					document.getElementById("video_full_box").children[0].pause();
+					$(this).hide();
+					var btn='<div class="video_circle" style="z-index:99998"><img src="img/Triangle.png" /></div>'
+						$("#video_full_box").append(btn);
+					$("#video_full_box .video_circle").click(function(){
+						document.getElementById("video_full_box").children[0].play();
 					console.log(1)
+					$(this).remove();
+					$("#stop_btn").show()
+				})
+				})
+				
+				
+				$('#close_video').click(function() {
+					
 					$('#video_full_box').remove()
 				})
 				$("#go_back").click(function() {
