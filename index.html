@@ -96,7 +96,6 @@
 			bottom: 0;
 			margin: auto;
 			z-index: 1;
-			
 		}
 		
 		.video_img_stop .video_circle img {
@@ -384,7 +383,7 @@
 			-webkit-appearance: none;
 		}
 		
-	   input[type="range"]:focus {
+		input[type="range"]:focus {
 			outline: none;
 		}
 		
@@ -423,14 +422,12 @@
 		}
 		
 		.video_run_left {
-			
 			height: 100%;
 			background: rgba(35, 36, 39, 0.50);
 			float: left;
 		}
 		
 		.video_run_right {
-		
 			height: 100%;
 			float: right;
 			background: rgba(35, 36, 39, 0.50);
@@ -478,8 +475,6 @@
 			-webkit-appearance: none;
 		}
 		
-		
-		
 		.video_run_set input[type=range]::-webkit-slider-thumb {
 			-webkit-appearance: none;
 			height: 0.12rem;
@@ -498,7 +493,6 @@
 			height: 0.8rem;
 			background: rgba(255, 255, 255, 0.30);
 			border-radius: 50%;
-		
 			margin-left: 0.24rem;
 			margin-top: 3.56rem;
 			position: relative;
@@ -511,7 +505,8 @@
 			top: 0.25rem;
 			left: 0.26rem;
 		}
-		.full_box_bottom{
+		
+		.full_box_bottom {
 			width: 100%;
 			height: 1.44rem;
 			position: absolute;
@@ -519,17 +514,19 @@
 			bottom: 0;
 			margin-left: 0.3rem;
 		}
-		.full_box_top{
+		
+		.full_box_top {
 			width: 100%;
-			border-radius:0 ;
+			border-radius: 0;
 			height: 0.94rem;
 			padding: 0.24rem 0.3rem 0 0.34rem;
-		    position: absolute;
-		    top: 0;
+			position: absolute;
+			top: 0;
 			box-sizing: border-box;
 			background: url(img/Background.png) no-repeat;
 		}
-		#big_range{
+		
+		#big_range {
 			float: left;
 			width: 0.3rem;
 			position: relative;
@@ -588,7 +585,7 @@
 
 					</div>
 					<div id="video_main_box" style="height: 100%;float: left;position: relative;">
-						
+
 					</div>
 					<div class="video_sides video_run_right">
 						<div class="video_run_set">
@@ -601,7 +598,7 @@
 
 					</div>
 				</div>
-				<video class="media" id="small_video" x5-video-player-type="h5" x-webkit-airplay="true" playsinline webkit-playsinline="true" src="img/VID_20171031_182625.mp4" style="height: 5.1rem;position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;border-radius:0 ;"/></video>
+				<video class="media" id="small_video" x5-video-player-type="h5" x-webkit-airplay="true" playsinline webkit-playsinline="true" src="img/VID_20171031_182625.mp4" style="width:41.6%;height: 5.1rem;position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;border-radius:0 ;" /></video>
 			</div>
 		</div>
 		<div class="content_box">
@@ -649,8 +646,7 @@
 				</div>
 				<p style="font-size: 0.28rem;color: #232427;margin-left: 0.3rem;font-family: PingFangSC-Regular;">还以为自己真的无所谓</p>
 				<div class="introduce_bottom">
-					
-					
+
 					<img src="img/1.png" style="width: 0.276rem;height: 0.246rem;margin-left: 5.173rem;" />
 					<span style="margin-right: 0.3rem;">10</span>
 					<img src="img/Combined Shape.png" style="width: 0.232rem;height: 0.242rem;" />
@@ -672,55 +668,55 @@
 	<script type="text/javascript">
 		$(function() {
 			var $body = $('body');
-     document.title = '昨日书';
-      var $iframe = $('<iframe src="/favicon.ico"></iframe>');
-   $iframe.on('load',function() {
-  setTimeout(function() {
-      $iframe.off('load').remove();
-  }, 0);
-  }).appendTo($body);
+			document.title = '昨日书';
+			var $iframe = $('<iframe src="/favicon.ico"></iframe>');
+			$iframe.on('load', function() {
+				setTimeout(function() {
+					$iframe.off('load').remove();
+				}, 0);
+			}).appendTo($body);
 
-			var video_big_w=$("#video_img_run").width()/100*2;
-			var video_w=($("video").width()*2/100);
+			var video_big_w = $("#video_img_run").width() / 100 * 2;
+			var video_w = $(".video_box video").width() / 100*2;
 			console.log(video_w);
-			$("#video_main_box").css('width',video_w+"rem");
-			$(".video_sides").css("width",(video_big_w-video_w)/2+"rem");
-			
+			$("#video_main_box").css('width', "41.6%");
+			$(".video_sides").css("width", "29.2%");
+
 			//弹幕数据
 			var arr = [{
 					name: "123",
 					speak: "hello",
-					speed:"60"
+					speed: "60"
 				},
 				{
 					name: "123",
 					speak: "你好哈哈哈哈哈哈哈哈啊哈哈哈哈",
-					speed:"30"
+					speed: "30"
 				},
 				{
 					name: "123",
 					speak: "hhhh",
-					speed:"60"
+					speed: "60"
 				},
 				{
 					name: "123",
 					speak: "你好",
-					speed:"10"
+					speed: "10"
 				},
 				{
 					name: "123",
 					speak: "66666666666666666",
-					speed:"50"
+					speed: "50"
 				},
 				{
 					name: "123",
 					speak: "你好",
-					speed:"20"
+					speed: "20"
 				},
 				{
 					name: "123",
 					speak: "你好",
-					speed:"45"
+					speed: "45"
 				}
 
 			]
@@ -728,57 +724,51 @@
 			document.getElementById("stop_range").onchange = function() {
 				document.getElementById("run_range").value = document.getElementById("stop_range").value
 			}
-			
-			var json={};
+
+			var json = {};
 			//
 			$(".video_circle").click(function(e) {
-				if(e && e.preventDefault){
-					e.preventDefault(); 
-				}else{
-					window.event.returnValue = false; 
-                return false;
+				if(e && e.preventDefault) {
+					e.preventDefault();
+				} else {
+					window.event.returnValue = false;
+					return false;
 				}
 				clearTimeout(json.timer);
 
 				$(this).parent(".video_img_stop").hide().siblings("#video_img_run").show();
 				document.getElementsByClassName("media")[0].play();
-				
-				
-				
-					$.each(arr, function(i) {
-						
-						//判断滑轨值
-            
-            	        
-						json.timer = setTimeout(function() {
-							var  item = {
-								img: 'img/haha.gif', //图片 
-								info: arr[i].speak, //文字 
-								//链接 
-								close: false, //显示关闭按钮 
-								href: "javascript:void(0)",
-								speed: i * 3 + 5 - i, //延迟,单位秒,默认6 
-								bottom: 30 + i * 20, //距离底部高度,单位px,默认随机 
-								color: 'white', //颜色,默认白色 
-								old_ie_color: 'white', //ie低版兼容色,不能与网页背景相同,默认黑色 
-							}
-							if(document.getElementById("run_range").value == 1) {
+
+				$.each(arr, function(i) {
+
+					//判断滑轨值
+
+					json.timer = setTimeout(function() {
+						var item = {
+							img: 'img/haha.gif', //图片 
+							info: arr[i].speak, //文字 
+							//链接 
+							close: false, //显示关闭按钮 
+							href: "javascript:void(0)",
+							speed: i * 3 + 5 - i, //延迟,单位秒,默认6 
+							bottom: 30 + i * 20, //距离底部高度,单位px,默认随机 
+							color: 'white', //颜色,默认白色 
+							old_ie_color: 'white', //ie低版兼容色,不能与网页背景相同,默认黑色 
+						}
+						if(document.getElementById("run_range").value == 1) {
 							$('#video_main_box').barrager(item);
-								clearTimeout(json.timer);
-						}else{
+							clearTimeout(json.timer);
+						} else {
 							clearTimeout(json.timer);
 							clear_barrage();
 						}
-						}, i * 1000)
-						
-	            
+					}, i * 1000)
 
-					});
-			
+				});
+
 				document.getElementById("run_range").onchange = function() {
 					if(document.getElementById("run_range").value == 0) {
-                        
-						
+
 						clear_barrage();
 						clearTimeout(json.timer);
 
@@ -818,19 +808,19 @@
 				var width = $(window).width() * 2 / 100;
 				var height = $(window).height() * 2 / 100;
 
-				var video = "<div id='video_full_box'><video class='media' x5-video-player-type='h5' x-webkit-airplay='true' playsinline webkit-playsinline  src='img/VID_20171031_182625.mp4' style='position:absolute;top:0;left:0.01rem;width:7.5rem;height:13.34rem;	border-radius:0 ;'/></video>"
-				+"<div class='full_box_top'>"
-				+"<span style='float:left;font-family: PingFangSC-Semibold;font-size: 0.34rem;color: #FFFFFF;letter-spacing: 0;'>昨日书</span><img src='img/Group 3.png' style='width:0.30rem;height:0.33rem;float:right;'/></div>"
-				+"<div class='full_box_bottom'>"
-				+"<div style='width:0.8rem;height:0.8rem;background: rgba(255,255,255,0.30);border-radius:50%;position:relative;float:left;'><img src='img/Group 14.png' style='width:0.29rem;height:0.29rem;position:absolute;top:0;bottom:0;right:0;left:0;margin:auto;'/></div>"
-				+"<span style='font-family: PingFangSC-Regular;font-size: 0.28rem;color: #FFFFFF;letter-spacing: 0;float:left;margin-left:0.22rem;position:relative;top:0.2rem'>4:30</span>"
-				+"<div style='float:right;width:0.8rem;height:0.4rem;margin-right:0.5rem;margin-top:0.75rem;'><input type='range' max='1' min='0' step='1' id='big_range' /><img src='img/Group 11.png' id='close_video' style='width:0.4rem;height:0.4rem;float:right;'/></div></div></div>"
-			
+				var video = "<div id='video_full_box'><video class='media' x5-video-player-type='h5' x-webkit-airplay='true' playsinline webkit-playsinline  src='img/VID_20171031_182625.mp4' style='position:absolute;top:0;left:0.01rem;width:7.5rem;height:13.34rem;	border-radius:0 ;'/></video>" +
+					"<div class='full_box_top'>" +
+					"<span style='float:left;font-family: PingFangSC-Semibold;font-size: 0.34rem;color: #FFFFFF;letter-spacing: 0;'>昨日书</span><img src='img/Group 3.png' style='width:0.30rem;height:0.33rem;float:right;'/></div>" +
+					"<div class='full_box_bottom'>" +
+					"<div style='width:0.8rem;height:0.8rem;background: rgba(255,255,255,0.30);border-radius:50%;position:relative;float:left;'><img src='img/Group 14.png' style='width:0.29rem;height:0.29rem;position:absolute;top:0;bottom:0;right:0;left:0;margin:auto;'/></div>" +
+					"<span style='font-family: PingFangSC-Regular;font-size: 0.28rem;color: #FFFFFF;letter-spacing: 0;float:left;margin-left:0.22rem;position:relative;top:0.2rem'>4:30</span>" +
+					"<div style='float:right;width:0.8rem;height:0.4rem;margin-right:0.5rem;margin-top:0.75rem;'><input type='range' max='1' min='0' step='1' id='big_range' /><img src='img/Group 11.png' id='close_video' style='width:0.4rem;height:0.4rem;float:right;'/></div></div></div>"
+
 				$("body").append(video)
-					document.getElementById("video_full_box").children[0].play();
+				document.getElementById("video_full_box").children[0].play();
 
 				$('#video_full_box').css({
-					"border-radius":"0",
+					"border-radius": "0",
 					"position": "absolute",
 					"width": width + "rem",
 					"height": height + "rem",
@@ -857,16 +847,15 @@
 					}, (i + 1) * 1000)
 
 				})
-				$('#close_video').click(function(){
-				console.log(1)
-				$('#video_full_box').remove()
-			})
-				$("#go_back").click(function(){
+				$('#close_video').click(function() {
+					console.log(1)
+					$('#video_full_box').remove()
+				})
+				$("#go_back").click(function() {
 					$('#video_full_box').remove()
 				})
 			})
-			
-			
+
 			$(".video_stop").click(function() {
 				document.getElementsByClassName("media")[0].pause();
 				$(this).parent().parent("#video_img_run").hide().siblings(".video_img_stop").show();
