@@ -601,7 +601,7 @@
 
 					</div>
 				</div>
-				<video class="media" id="small_video" x5-video-player-type="h5" x-webkit-airplay="true" playsinline webkit-playsinline="true" src="img/VID_20171031_182625.mp4" style="width:auto;height: 5.1rem;position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;border-radius:0 ;"/></video>
+				<video class="media" id="small_video" x5-video-player-type="h5" x-webkit-airplay="true" playsinline webkit-playsinline="true" src="img/VID_20171031_182625.mp4" style="height: 5.1rem;position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;border-radius:0 ;"/></video>
 			</div>
 		</div>
 		<div class="content_box">
@@ -673,15 +673,15 @@
 		$(function() {
 			var $body = $('body');
      document.title = '昨日书';
- 
- var $iframe = $('<iframe src="/favicon.ico"></iframe>');
-$iframe.on('load',function() {
+      var $iframe = $('<iframe src="/favicon.ico"></iframe>');
+   $iframe.on('load',function() {
   setTimeout(function() {
       $iframe.off('load').remove();
   }, 0);
-}).appendTo($body);
+  }).appendTo($body);
+
 			var video_big_w=$("#video_img_run").width()/100*2;
-			var video_w=($("#small_video").innerWidth()/100)/2;
+			var video_w=($("video").width()*2/100);
 			console.log(video_w);
 			$("#video_main_box").css('width',video_w+"rem");
 			$(".video_sides").css("width",(video_big_w-video_w)/2+"rem");
