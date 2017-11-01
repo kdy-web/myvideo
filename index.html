@@ -742,7 +742,10 @@
 				$(this).parent(".video_img_stop").hide().siblings("#video_img_run").show();
 				document.getElementsByClassName("media")[0].play();
                  if(document.getElementById("run_range").value==1){
-                 	creat_barrae("#video_main_box","run_range");
+                 	if(document.getElementsByClassName("media")[0].readyState==4){
+                 		creat_barrae("#video_main_box","run_range");
+                 	}
+                 	
                  }
 				
 
@@ -753,7 +756,9 @@
 						clearTimeout(json.timer);
 
 					} else {
-						creat_barrae("#video_main_box","run_range")
+						if(document.getElementsByClassName("media")[0].readyState==4){
+                 		creat_barrae("#video_main_box","run_range");
+                 	}
 					}
 
 					document.getElementById("stop_range").value = document.getElementById("run_range").value
@@ -822,7 +827,9 @@
 					"top": 0,
 					"left": 0
 				})
-				creat_barrae('#video_full_box',"big_range");
+				if(document.getElementById("video_full_box").children[0].readyState==4){
+                 		creat_barrae("#video_main_box","run_range");
+                 	}
 				document.getElementById("big_range").onchange = function() {
 					if(document.getElementById("big_range").value == 0) {
 
@@ -830,7 +837,9 @@
 						clearTimeout(json.timer);
 
 					} else {
-						creat_barrae("#video_full_box","big_range")
+						if(document.getElementById("video_full_box").children[0].readyState==4){
+                 		creat_barrae("#video_main_box","run_range");
+                 	}
 					}
 
 					document.getElementById("run_range").value = document.getElementById("big_range").value
