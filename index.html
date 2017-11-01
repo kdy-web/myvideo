@@ -805,6 +805,7 @@
 			}
 			$("#to_big").click(function() {
                  clearTimeout(json.timer);
+               
 				var width = $("body").width() * 2 / 100;
 				var height = $("body").height() * 2 / 100;
 
@@ -816,6 +817,7 @@
 
 				$("body").append(video);
 				document.getElementById("video_full_box").children[0].play();
+				document.getElementById("video_full_box").children[0].currentTime=document.getElementsByClassName("media")[0].currentTime
                 document.getElementById("big_range").value= document.getElementById("run_range").value
 				$('#video_full_box').css({
 					"border-radius": "0",
@@ -848,6 +850,8 @@
 				
 				
 				$("#stop_btn").click(function(){
+					
+					
 					document.getElementById("video_full_box").children[0].pause();
 					$(this).hide();
 					var btn='<div class="video_circle" style="z-index:99998"><img src="img/Triangle.png" /></div>'
@@ -862,12 +866,10 @@
 				
 				
 				$('#close_video').click(function() {
-					
+					document.getElementsByClassName("media")[0].currentTime=document.getElementById("video_full_box").children[0].currentTime
 					$('#video_full_box').remove()
 				})
-				$("#go_back").click(function() {
-					$('#video_full_box').remove()
-				})
+				
 			})
 
 			$(".video_stop").click(function() {
