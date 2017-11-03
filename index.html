@@ -76,6 +76,7 @@
 			background: rgba(0, 0, 0, 0.3);
 			position: absolute;
 			overflow: hidden;
+			
 			z-index: 2;
 			top: 0;
 			left: 0;
@@ -99,7 +100,7 @@
 			z-index: 1;
 		}
 		
-		 .video_circle img {
+		.video_circle img {
 			width: 0.731rem;
 			height: 0.883rem;
 			position: absolute;
@@ -360,8 +361,9 @@
 			margin-right: 0.22rem;
 		}
 		
-		.app_download_box span {
+		.app_download_box a {
 			position: relative;
+			text-decoration: none;
 			float: left;
 			font-family: PingFangSC-Regular;
 			font-size: 0.24rem;
@@ -424,14 +426,14 @@
 		
 		.video_run_left {
 			height: 100%;
-			background: rgba(35, 36, 39, 0.50);
 			float: left;
+			position: relative;
 		}
 		
 		.video_run_right {
 			height: 100%;
 			float: right;
-			background: rgba(35, 36, 39, 0.50);
+			position: relative;
 		}
 		
 		.video_run_set {
@@ -543,23 +545,24 @@
 			width: 0.12rem;
 			margin-top: -5px;
 			position: relative;
-			
 			top: 0.043rem;
 			/*使滑块超出轨道部分的偏移量相等*/
 			background: #ffffff;
 			border-radius: 50%;
 			/*外观设置为圆形*/
 		}
+		
+		
 	</style>
 
 	<body>
 		<div class="video_big_box">
 			<div class="video_box">
-
-				<div class="video_img_stop">
+                 <div id="video_run_box" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;">
+                 		<div class="video_img_stop">
 					<div class="app_download_box">
 						<img src="img/Page 1@1.5x.png" class="download_img" />
-						<span>下载APP</span>
+						<a href="https://www.xueguoguo.cn/jump.html ">下载APP</a>
 					</div>
 					<div class="video_circle">
 						<img src="img/Triangle.png" />
@@ -575,21 +578,30 @@
 						</div>
 
 					</div>
+					
 				</div>
+                 	<div id="poster" style="position: absolute;background: url(img/8CEBB20F-0614-B0CF-19A4-36186F4AB0F6.png) no-repeat;width: 100%;height: 100%;background-size:100% 100%;top: 0;left: 0;z-index: 1;"></div>
+                 </div>
+			
 				<div id="video_img_run">
 					<div class="video_sides video_run_left">
+						<div style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: url(img/8CEBB20F-0614-B0CF-19A4-36186F4AB0F6.png) no-repeat ;background-size:10rem 100%;filter: blur(0.1rem);">
+
+						</div>
 						<div class="video_stop">
 							<img src="img/Group 14.png" />
 
 						</div>
 
 						<span style="float: left;font-family: PingFangSC-Regular;font-size: 0.28rem;color: #FFFFFF;position: relative;margin-left: 0.35rem;margin-top: 0.1rem;">4:30</span>
-
 					</div>
 					<div id="video_main_box" style="height: 100%;float: left;position: relative;">
 
 					</div>
 					<div class="video_sides video_run_right">
+						<div style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: url(img/8CEBB20F-0614-B0CF-19A4-36186F4AB0F6.png) no-repeat -7.8rem 0 ;background-size:10rem 100%;filter: blur(0.1rem);">
+
+						</div>
 						<div class="video_run_set">
 							<li style="margin-top:3.2rem ;"><img src="img/Group 3.png" /></li>
 							<li><input type="range" max="1" min="0" step="1" id="run_range" /></li>
@@ -600,7 +612,7 @@
 
 					</div>
 				</div>
-				<video class="media" preload="auto" id="small_video" x5-video-player-type="h5" x-webkit-airplay="true" playsinline webkit-playsinline="true" src="img/VID_20171031_182625.mp4" style="width:41.6%;height: 5.1rem;position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;border-radius:0 ;" /></video>
+				<video class="media" preload="auto" id="small_video"  x5-video-player-type="h5" x-webkit-airplay="true" playsinline webkit-playsinline="true" src="img/VID_20171031_182625.mp4" style="width:100%;height: 100%;position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;border-radius:0 ;" /></video>
 			</div>
 		</div>
 		<div class="content_box">
@@ -679,7 +691,7 @@
 			}).appendTo($body);
 
 			var video_big_w = $("#video_img_run").width() / 100 * 2;
-			var video_w = $(".video_box video").width() / 100*2;
+			var video_w = $(".video_box video").width() / 100 * 2;
 			console.log(video_w);
 			$("#video_main_box").css('width', "41.6%");
 			$(".video_sides").css("width", "29.2%");
@@ -725,7 +737,7 @@
 			//弹幕开关设置  让播放和暂停  一致
 			document.getElementById("stop_range").onchange = function() {
 				document.getElementById("run_range").value = document.getElementById("stop_range").value;
-				                                 
+
 			}
 
 			var json = {};
@@ -738,38 +750,37 @@
 					return false;
 				}
 				clearTimeout(json.timer);
-
-				$(this).parent(".video_img_stop").hide().siblings("#video_img_run").show();
+              clear_barrage();
+				$(this).parent().parent().hide().siblings("#video_img_run").show();
 				document.getElementsByClassName("media")[0].play();
-                 if(document.getElementById("run_range").value==1){
-                 	if(document.getElementsByClassName("media")[0].readyState==4){
-                 		creat_barrae("#video_main_box","run_range");
-                 	}
-                 	
-                 }
-				
+				if(document.getElementById("run_range").value == 1) {
+					if(document.getElementsByClassName("media")[0].readyState == 4) {
+						creat_barrae("#video_main_box", "run_range");
+					}
+
+				}
 
 				document.getElementById("run_range").onchange = function() {
 					if(document.getElementById("run_range").value == 0) {
 
-						clear_barrage("#video_main_box","run_range");
+						clear_barrage();
 						clearTimeout(json.timer);
 
 					} else {
-						if(document.getElementsByClassName("media")[0].readyState==4){
-                 		creat_barrae("#video_main_box","run_range");
-                 	}
+						if(document.getElementsByClassName("media")[0].readyState == 4) {
+							creat_barrae("#video_main_box", "run_range");
+						}
 					}
 
 					document.getElementById("stop_range").value = document.getElementById("run_range").value
 				}
 
 			});
-             
-             function creat_barrae(id,rang_id){
-               console.log($(id))
-             	$.each(arr, function(i) {
-                       
+
+			function creat_barrae(id, rang_id) {
+				console.log($(id))
+				$.each(arr, function(i) {
+
 					//判断滑轨值
 
 					json.timer = setTimeout(function() {
@@ -794,9 +805,7 @@
 					}, i * 1000)
 
 				});
-             }
-
-
+			}
 
 			function clear_barrage() {
 
@@ -804,8 +813,8 @@
 				console.log($('.barrage'))
 			}
 			$("#to_big").click(function() {
-                 clearTimeout(json.timer);
-               
+				clearTimeout(json.timer);
+
 				var width = $("body").width() * 2 / 100;
 				var height = $("body").height() * 2 / 100;
 
@@ -817,8 +826,8 @@
 
 				$("body").append(video);
 				document.getElementById("video_full_box").children[0].play();
-				document.getElementById("video_full_box").children[0].currentTime=document.getElementsByClassName("media")[0].currentTime
-                document.getElementById("big_range").value= document.getElementById("run_range").value
+				document.getElementById("video_full_box").children[0].currentTime = document.getElementsByClassName("media")[0].currentTime
+				document.getElementById("big_range").value = document.getElementById("run_range").value
 				$('#video_full_box').css({
 					"border-radius": "0",
 					"position": "fixed",
@@ -829,52 +838,50 @@
 					"top": 0,
 					"left": 0
 				})
-				if(document.getElementById("video_full_box").children[0].readyState==4){
-                 		creat_barrae("#video_main_box","run_range");
-                 	}
+				if(document.getElementById("video_full_box").children[0].readyState == 4) {
+					creat_barrae("#video_main_box", "run_range");
+				}
 				document.getElementById("big_range").onchange = function() {
 					if(document.getElementById("big_range").value == 0) {
 
-						clear_barrage("#video_full_box","big_range");
+						clear_barrage("#video_full_box", "big_range");
 						clearTimeout(json.timer);
 
 					} else {
-						if(document.getElementById("video_full_box").children[0].readyState==4){
-                 		creat_barrae("#video_main_box","run_range");
-                 	}
+						if(document.getElementById("video_full_box").children[0].readyState == 4) {
+							creat_barrae("#video_main_box", "run_range");
+						}
 					}
 
 					document.getElementById("run_range").value = document.getElementById("big_range").value
 					document.getElementById("stop_range").value = document.getElementById("big_range").value
 				}
-				
-				
-				$("#stop_btn").click(function(){
-					
-					
+
+				$("#stop_btn").click(function() {
+
 					document.getElementById("video_full_box").children[0].pause();
 					$(this).hide();
-					var btn='<div class="video_circle" style="z-index:99998"><img src="img/Triangle.png" /></div>'
-						$("#video_full_box").append(btn);
-					$("#video_full_box .video_circle").click(function(){
+					var btn = '<div class="video_circle" style="z-index:99998"><img src="img/Triangle.png" /></div>'
+					$("#video_full_box").append(btn);
+					$("#video_full_box .video_circle").click(function() {
 						document.getElementById("video_full_box").children[0].play();
-					console.log(1)
-					$(this).remove();
-					$("#stop_btn").show()
+						console.log(1)
+						$(this).remove();
+						$("#stop_btn").show()
+					})
 				})
-				})
-				
-				
+
 				$('#close_video').click(function() {
-					document.getElementsByClassName("media")[0].currentTime=document.getElementById("video_full_box").children[0].currentTime
+					document.getElementsByClassName("media")[0].currentTime = document.getElementById("video_full_box").children[0].currentTime
 					$('#video_full_box').remove()
 				})
-				
+
 			})
 
 			$(".video_stop").click(function() {
 				document.getElementsByClassName("media")[0].pause();
-				$(this).parent().parent("#video_img_run").hide().siblings(".video_img_stop").show();
+				$(this).parent().parent("#video_img_run").hide().siblings("#video_run_box").show();
+				  
 			});
 
 			$('.content_box_top li').eq(0).css("color", "#2B94FA");
