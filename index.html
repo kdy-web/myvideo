@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<!--强制让文档的宽度与设备的宽度保持1:1，并且文档最大的宽度比例是1.0，且不允许用户点击屏幕放大浏览-->
 		<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no" />
@@ -18,6 +17,7 @@
 		<meta name="format-detection" content="address=no" />
 		<meta charset="utf-8" />
 		<link rel="stylesheet" type="text/css" href="css/barrager.css" />
+		<link rel="stylesheet" type="text/css" href="css/video.css"/>
 		<title></title>
 		<script type="text/javascript">
 			//换算函数  10px=1rem
@@ -35,525 +35,7 @@
 			}
 		</script>
 	</head>
-	<style type="text/css">
-		* {
-			margin: 0;
-			padding: 0;
-		}
-		
-		@font-face {
-			font-family: PingFangSC-Regular;
-			src: url('css/PingFang SC Regular.ttf'), url('css/PingFang SC Regular.ttf')
-		}
-		
-		@font-face {
-			font-family: PingFangSC-Medium;
-			src: url('css/PingFang Medium_downcc.otf'), url('css/PingFang Medium_downcc.otf')
-		}
-		
-		.video_big_box {
-			width: 100%;
-			height: 5.7rem;
-			padding: 0.3rem;
-			box-sizing: border-box;
-			position: relative;
-		}
-		
-		.video_box {
-			width: 6.9rem;
-			height: 5.1rem;
-			overflow: hidden;
-			position: relative;
-			border-radius: 8px;
-			box-shadow: 0 4px 26px 0 rgba(0, 0, 0, 0.26);
-			position: relative;
-		}
-		
-		.video_img_stop {
-			width: 100%;
-			height: 100%;
-			border-radius: 8px;
-			background: rgba(0, 0, 0, 0.3);
-			position: absolute;
-			overflow: hidden;
-			
-			z-index: 2;
-			top: 0;
-			left: 0;
-		}
-		
-		video {
-			border-radius: 8px;
-		}
-		
-		.video_circle {
-			width: 2rem;
-			height: 2rem;
-			background: rgba(255, 255, 255, 0.3);
-			border-radius: 50%;
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			margin: auto;
-			z-index: 1;
-		}
-		
-		.video_circle img {
-			width: 0.731rem;
-			height: 0.883rem;
-			position: absolute;
-			top: 0.56rem;
-			left: 0.72rem;
-			z-index: 2;
-		}
-		
-		.content_box {
-			width: 6.9rem;
-			height: 6.05rem;
-			box-shadow: 0 8px 26px 0 rgba(0, 0, 0, 0.26);
-			border-radius: 8px;
-			margin-left: 0.3rem;
-		}
-		
-		.content_box_top {
-			width: 100%;
-			height: 0.89rem;
-			border-bottom: 1px solid #F0F0F0;
-			position: relative;
-		}
-		
-		.content_box_top li {
-			list-style: none;
-			width: 50%;
-			float: left;
-			height: 100%;
-			padding-top: 0.16rem;
-			color: #232427;
-		}
-		
-		.bottom_line {
-			position: absolute;
-			width: 40%;
-			height: 1px;
-			background: #2B94FA;
-			z-index: 2;
-			left: 10%;
-			bottom: -0.01rem;
-		}
-		
-		.comment_box {
-			display: none;
-			width: 100%;
-			height: 4.68rem;
-			border: 1px solid #F0F0F0;
-		}
-		
-		.introduce {
-			width: 100%;
-			height: 1.3rem;
-			margin-top: 0.24rem;
-			padding-left: 0.3rem;
-			box-sizing: border-box;
-		}
-		
-		.introduce img {
-			float: left;
-			width: 1rem;
-			height: 1rem;
-			margin-right: 0.14rem;
-		}
-		
-		.introduce .introduce_box {
-			float: left;
-			width: 5.43rem;
-			list-style: none;
-		}
-		
-		.introduce .introduce_box li {
-			width: 100%;
-			height: 0.4rem;
-			margin-bottom: 0.2rem;
-		}
-		
-		.introduce .introduce_box li span {
-			float: left;
-			font-size: 0.28rem;
-			color: #232427;
-			font-family: PingFangSC-Regular;
-		}
-		
-		.introduce .introduce_box li img {
-			width: 0.34rem;
-			float: left;
-			margin-left: 0.28rem;
-			height: 0.34rem;
-			position: relative;
-			top: 0.04rem;
-		}
-		
-		.introduce .introduce_box li span.introduce_time {
-			float: right;
-			font-size: 0.24rem;
-			margin-right: 0.3rem;
-			color: #8E8E8E;
-			font-family: PingFangSC-Regular;
-		}
-		
-		.introduce_bottom {
-			margin-top: 0.3rem;
-			width: 100%;
-			height: 0.33rem;
-		}
-		
-		.introduce_bottom img {
-			float: left;
-			margin-right: 0.111rem;
-			position: relative;
-			top: 0.06rem;
-		}
-		
-		.introduce_bottom span {
-			float: left;
-			font-size: 0.24rem;
-			color: #8E8E8E;
-			font-family: PingFangSC-Regular;
-		}
-		
-		.introduce_chat {
-			margin-top: 0.259rem;
-			position: relative;
-			height: 1.52rem;
-		}
-		
-		.introduce_chat_box {
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			margin: auto;
-			width: 6.3rem;
-			height: 1.52rem;
-			background: #F0F0F0;
-			border-radius: 8px;
-			padding: 0.24rem;
-			box-sizing: border-box;
-		}
-		
-		.introduce_chat_box p {
-			font-size: 0.28rem;
-			color: #8E8E8E;
-			font-family: PingFangSC-Regular;
-		}
-		
-		.introduce_chat_box p span {
-			margin-left: 0.1rem;
-		}
-		
-		.about_header {
-			width: 100%;
-			height: 1.5rem;
-			margin-top: 0.24rem;
-			padding-left: 0.24rem;
-			box-sizing: border-box;
-		}
-		
-		.about_header img {
-			float: left;
-			width: 1.2rem;
-			height: 1.2rem;
-			margin-right: 0.3rem;
-		}
-		
-		.about_header .about_header_box {
-			float: left;
-			width: 5.13rem;
-			list-style: none;
-		}
-		
-		.about_header .about_header_box li {
-			width: 100%;
-			height: 0.48rem;
-			margin-bottom: 0.2rem;
-		}
-		
-		.about_header .about_header_box li span {
-			float: left;
-			font-size: 0.34rem;
-			font-family: PingFangSC-Medium;
-			color: #232427;
-		}
-		
-		.about_header .about_header_box li img {
-			width: 0.34rem;
-			float: left;
-			margin-left: 0.1rem;
-			position: relative;
-			top: 0.08rem;
-			height: 0.34rem;
-		}
-		
-		.header {
-			height: 0.42rem;
-		}
-		
-		.header .vertical_line {
-			float: left;
-			width: 0.06rem;
-			height: 0.3rem;
-			background: #2B94FA;
-			margin-left: 0.24rem;
-			position: relative;
-			top: 0.06rem;
-		}
-		
-		.header .header_title {
-			float: left;
-			margin-left: 0.1rem;
-			font-size: 0.3rem;
-			font-weight: bold
-		}
-		
-		.font_color {
-			color: #2B94FA;
-		}
-		
-		.about_content {
-			width: 100%;
-			padding: 0.24rem;
-			box-sizing: border-box;
-			height: 2.7rem;
-		}
-		
-		.about_content_box {
-			width: 6.42rem;
-			height: 2.35rem;
-			font-family: PingFangSC-Regular;
-			line-height: 0.4rem;
-			font-size: 0.28rem;
-			color: #000000;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			display: -webkit-box;
-			-webkit-line-clamp: 6;
-			-webkit-box-orient: vertical;
-		}
-		
-		.app_download_box {
-			top: 0.24rem;
-			right: -1.25rem;
-			width: 1.9rem;
-			height: 0.54rem;
-			background: rgba(0, 0, 0, 0.30);
-			border-radius: 35px 0 0 35px;
-			padding: 0.12rem 0.122rem;
-			box-sizing: border-box;
-			position: absolute;
-			z-index: 999;
-		}
-		
-		.app_download_box .download_img {
-			float: left;
-			width: 0.32rem;
-			height: 0.32rem;
-			margin-right: 0.22rem;
-		}
-		
-		.app_download_box a {
-			position: relative;
-			text-decoration: none;
-			float: left;
-			font-family: PingFangSC-Regular;
-			font-size: 0.24rem;
-			color: #FFFFFF;
-		}
-		
-		.set_box {
-			width: 100%;
-			height: 0.88rem;
-			position: absolute;
-			bottom: 0.24rem;
-		}
-		
-		.set_box input[type="range"] {
-			float: right;
-			width: 0.32rem;
-			position: relative;
-			top: 0.03rem;
-			margin-right: 0.24rem;
-			-webkit-appearance: none;
-		}
-		
-		input[type="range"]:focus {
-			outline: none;
-		}
-		
-		.set_box input[type=range]::-webkit-slider-thumb {
-			-webkit-appearance: none;
-			height: 0.12rem;
-			width: 0.12rem;
-			margin-top: -5px;
-			position: relative;
-			top: 0.043rem;
-			/*使滑块超出轨道部分的偏移量相等*/
-			background: #ffffff;
-			border-radius: 50%;
-			/*外观设置为圆形*/
-		}
-		
-		.set_box span {
-			float: left;
-			font-family: PingFangSC-Regular;
-			font-size: 0.28rem;
-			color: #FFFFFF;
-			position: relative;
-			bottom: 0.2rem;
-			margin-left: 0.24rem;
-		}
-		
-		#video_img_run {
-			width: 100%;
-			height: 100%;
-			display: none;
-			border-radius: 8px;
-			position: absolute;
-			z-index: 2;
-			top: 0;
-			left: 0;
-		}
-		
-		.video_run_left {
-			height: 100%;
-			float: left;
-			position: relative;
-		}
-		
-		.video_run_right {
-			height: 100%;
-			float: right;
-			position: relative;
-		}
-		
-		.video_run_set {
-			width: 0.32rem;
-			height: 100%;
-			float: right;
-			margin-right: 0.3rem;
-		}
-		
-		.video_run_set li {
-			list-style: none;
-			width: 100%;
-			height: 0.3rem;
-			line-height: 0.3rem;
-			margin-bottom: 0.28rem;
-			position: relative;
-		}
-		
-		.video_run_set li * {
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			margin: auto;
-		}
-		
-		.video_run_set li img {
-			width: 100%;
-			height: auto;
-		}
-		
-		.video_run_set input[type="range"] {
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			margin: auto;
-			width: 0.32rem;
-			height: 0.02rem;
-			-webkit-appearance: none;
-		}
-		
-		.video_run_set input[type=range]::-webkit-slider-thumb {
-			-webkit-appearance: none;
-			height: 0.12rem;
-			width: 0.12rem;
-			margin-top: -5px;
-			position: relative;
-			top: 0.045rem;
-			/*使滑块超出轨道部分的偏移量相等*/
-			background: #ffffff;
-			border-radius: 50%;
-			/*外观设置为圆形*/
-		}
-		
-		.video_stop {
-			width: 0.8rem;
-			height: 0.8rem;
-			background: rgba(255, 255, 255, 0.30);
-			border-radius: 50%;
-			margin-left: 0.24rem;
-			margin-top: 3.56rem;
-			position: relative;
-		}
-		
-		.video_stop img {
-			width: 0.29rem;
-			height: 0.29rem;
-			position: absolute;
-			top: 0.25rem;
-			left: 0.26rem;
-		}
-		
-		.full_box_bottom {
-			width: 100%;
-			height: 1.44rem;
-			position: absolute;
-			z-index: 10001;
-			bottom: 0;
-			margin-left: 0.3rem;
-		}
-		
-		.full_box_top {
-			width: 100%;
-			border-radius: 0;
-			height: 0.94rem;
-			padding: 0.24rem 0.3rem 0 0.34rem;
-			position: absolute;
-			top: 0;
-			box-sizing: border-box;
-			background: url(img/Background.png) no-repeat;
-		}
-		
-		#big_range {
-			float: left;
-			width: 0.3rem;
-			position: relative;
-			top: 0.15rem;
-			right: 0.1rem;
-			margin-right: 0.24rem;
-			-webkit-appearance: none;
-		}
-		
-		#big_range::-webkit-slider-thumb {
-			-webkit-appearance: none;
-			height: 0.12rem;
-			width: 0.12rem;
-			margin-top: -5px;
-			position: relative;
-			top: 0.043rem;
-			/*使滑块超出轨道部分的偏移量相等*/
-			background: #ffffff;
-			border-radius: 50%;
-			/*外观设置为圆形*/
-		}
-		
-		
-	</style>
+	
 
 	<body>
 		<div class="video_big_box">
@@ -568,58 +50,67 @@
 						<img src="img/Triangle.png" />
 					</div>
 					<div class="set_box">
-						<div style="height: 0.3rem;float: left;width: 100%;margin-bottom: 0.3rem;">
-							<img src="img/Group 3.png" style="width: auto;height: 100%;float: right;margin-right: 0.24rem;" />
+						<div style="height: 0.4rem;float: left;width: 100%;margin-bottom: 0.3rem;">
+							<img src="img/Group.png" class="to_big"  style="width: auto;height: 100%;float: right;margin-right: 0.24rem;" />
 						</div>
-						<div style="height: 0.22rem;">
-							<span>4:30</span>
-							<input type="range" max="1" min="0" step="1" id="stop_range" />
+						<div style="height: 0.4rem;float: left;width: 100%;margin-bottom: 0.3rem;">
+							<img src="img/Group2.png" style="width: auto;height: 100%;float: right;margin-right: 0.24rem;" />
+						</div>
+						<div style="height: 0.4rem;float: left;width: 100%;">
+							<span >4:30</span>
+						<div class="dan_mu">
+							<img src="img/Group 6.png" style="width: 100%;height:auto;float: left;"/>
+						</div>
 
 						</div>
 
 					</div>
 					
 				</div>
-                 	<div id="poster" style="position: absolute;background: url(img/8CEBB20F-0614-B0CF-19A4-36186F4AB0F6.png) no-repeat;width: 100%;height: 100%;background-size:100% 100%;top: 0;left: 0;z-index: 1;"></div>
+                 	<div  style="position: absolute;background: url(img/8CEBB20F-0614-B0CF-19A4-36186F4AB0F6.png) no-repeat;width: 100%;height: 100%;background-size:100% 100%;top: 0;left: 0;z-index: 1;"></div>
                  </div>
 			
 				<div id="video_img_run">
 					<div class="video_sides video_run_left">
-						<div style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: url(img/8CEBB20F-0614-B0CF-19A4-36186F4AB0F6.png) no-repeat ;background-size:10rem 100%;filter: blur(0.1rem);">
+						<div style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: rgba(35,36,39,0.50);z-index: 10001;"></div>
+						<div style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: url(img/8CEBB20F-0614-B0CF-19A4-36186F4AB0F6.png) no-repeat ;background-size:10rem 100%;filter: blur(0.1rem);z-index: 10000;">
 
 						</div>
-						<div class="video_stop">
+						<div class="video_stop" style="z-index: 99999;">
 							<img src="img/Group 14.png" />
 
 						</div>
 
-						<span style="float: left;font-family: PingFangSC-Regular;font-size: 0.28rem;color: #FFFFFF;position: relative;margin-left: 0.35rem;margin-top: 0.1rem;">4:30</span>
+						<span style="z-index: 99999;">4:30</span>
 					</div>
 					<div id="video_main_box" style="height: 100%;float: left;position: relative;">
 
 					</div>
 					<div class="video_sides video_run_right">
-						<div style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: url(img/8CEBB20F-0614-B0CF-19A4-36186F4AB0F6.png) no-repeat -7.8rem 0 ;background-size:10rem 100%;filter: blur(0.1rem);">
+						<div style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: rgba(35,36,39,0.50);z-index: 10001;"></div>
+						<div style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;background:url(img/8CEBB20F-0614-B0CF-19A4-36186F4AB0F6.png)  no-repeat -7.8rem 0 ;background-size:10rem 100%;filter: blur(0.1rem);">
 
 						</div>
 						<div class="video_run_set">
-							<li style="margin-top:3.2rem ;"><img src="img/Group 3.png" /></li>
-							<li><input type="range" max="1" min="0" step="1" id="run_range" /></li>
+							<li style="margin-top:3.2rem ;height: 0.4rem;"><img src="img/Group2.png" style="width: auto;height:100% ;"/></li>
+							<li style="height: 0.29rem;"><div class="dan_mu">
+							<img src="img/Group 6.png" style="float: left;width: auto;height:100% ;"/>
+						</div></li>
 
-							<li><img src="img/Group 10.png" id="to_big" /></li>
+							<li style="height: 0.34rem;"><img src="img/Group.png" class="to_big" style="width: auto;height:100% ;"/></li>
 
 						</div>
 
 					</div>
 				</div>
-				<video class="media" preload="auto" id="small_video"  x5-video-player-type="h5" x-webkit-airplay="true" playsinline webkit-playsinline="true" src="img/VID_20171031_182625.mp4" style="width:100%;height: 100%;position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;border-radius:0 ;" /></video>
+				<video id="media" preload="auto" id="small_video"  x5-video-player-type="h5" x-webkit-airplay="true" playsinline webkit-playsinline="true" src="img/VID_20171031_182625.mp4" style="width:100%;height: 100%;position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;border-radius:0 ;" /></video>
 			</div>
 		</div>
 		<div class="content_box">
 
 			<ul class="content_box_top">
-				<li style="text-align: right;padding-right:0.9rem;box-sizing: border-box;font-size: 0.34rem;font-family: PingFangSC-Medium;font-weight: bold;">简介</li>
-				<li style="text-align: left;padding-left:0.9rem;box-sizing: border-box;font-size: 0.34rem;font-family: PingFangSC-Medium;font-weight: bold;">评论(10)</li>
+				<li style="text-align: right;padding-right:0.9rem;box-sizing: border-box;">简介</li>
+				<li style="text-align: left;padding-left:0.9rem;box-sizing: border-box;">评论(10)</li>
 				<div class="bottom_line"></div>
 			</ul>
 			<div class="about_box">
@@ -680,7 +171,10 @@
 	<script src="js/jquery.barrager.min.js" type="text/javascript">
 	</script>
 	<script type="text/javascript">
+		
+		var GLOBAL=GLOBAL || {};
 		$(function() {
+			//设置浏览器标题
 			var $body = $('body');
 			document.title = '昨日书';
 			var $iframe = $('<iframe src="/favicon.ico"></iframe>');
@@ -689,13 +183,14 @@
 					$iframe.off('load').remove();
 				}, 0);
 			}).appendTo($body);
-
-			var video_big_w = $("#video_img_run").width() / 100 * 2;
-			var video_w = $(".video_box video").width() / 100 * 2;
-			console.log(video_w);
+            
+			
 			$("#video_main_box").css('width', "41.6%");
 			$(".video_sides").css("width", "29.2%");
-
+            	$(".set_box div .to_big").attr("bol","true");
+            	$(".video_run_set li .to_big").attr("bol","false");
+            	GLOBAL.time=0;
+            	document.getElementById("media").currentTime=GLOBAL.time
 			//弹幕数据
 			var arr = [{
 					name: "123",
@@ -734,13 +229,22 @@
 				}
 
 			]
+			
+			
+			var  danmu_flag=true;
 			//弹幕开关设置  让播放和暂停  一致
-			document.getElementById("stop_range").onchange = function() {
-				document.getElementById("run_range").value = document.getElementById("stop_range").value;
-
+			function danmu_img(){
+				if(danmu_flag){
+					$('.dan_mu img').attr("src","img/Group 6.png");
+				}else{
+					$('.dan_mu img').attr("src","img/Group 5.png");
+				}
 			}
-
-			var json = {};
+            $(".set_box .dan_mu").click(function(){
+            	danmu_flag=!danmu_flag
+            	danmu_img()
+            })
+			
 			//
 			$(".video_circle").click(function(e) {
 				if(e && e.preventDefault) {
@@ -749,41 +253,46 @@
 					window.event.returnValue = false;
 					return false;
 				}
-				clearTimeout(json.timer);
-              clear_barrage();
+				clearTimeout(GLOBAL.timer);
+                 clear_barrage();
+                 danmu_img();
 				$(this).parent().parent().hide().siblings("#video_img_run").show();
-				document.getElementsByClassName("media")[0].play();
-				if(document.getElementById("run_range").value == 1) {
-					if(document.getElementsByClassName("media")[0].readyState == 4) {
-						creat_barrae("#video_main_box", "run_range");
+				document.getElementById("media").play();
+				
+				if(danmu_flag) {
+					if(document.getElementById("media").readyState == 4) {
+						creat_barrae("#video_main_box");
 					}
 
 				}
-
-				document.getElementById("run_range").onchange = function() {
-					if(document.getElementById("run_range").value == 0) {
+                
+				  $(".dan_mu").click(function() {
+				  	  console.log(1)
+				  	danmu_flag=!danmu_flag
+            	    danmu_img();
+            	  
+					if(danmu_flag==false) {
 
 						clear_barrage();
-						clearTimeout(json.timer);
+						clearTimeout(GLOBAL.timer);
 
 					} else {
-						if(document.getElementsByClassName("media")[0].readyState == 4) {
-							creat_barrae("#video_main_box", "run_range");
+						if(document.getElementById("media").readyState == 4) {
+							creat_barrae("#video_main_box");
 						}
 					}
 
-					document.getElementById("stop_range").value = document.getElementById("run_range").value
-				}
+					
+				})
 
 			});
 
-			function creat_barrae(id, rang_id) {
+			function creat_barrae(id) {
 				console.log($(id))
 				$.each(arr, function(i) {
 
 					//判断滑轨值
-
-					json.timer = setTimeout(function() {
+					GLOBAL.timer = setTimeout(function() {
 						var item = {
 							img: 'img/haha.gif', //图片 
 							info: arr[i].speak, //文字 
@@ -795,11 +304,11 @@
 							color: 'white', //颜色,默认白色 
 							old_ie_color: 'white', //ie低版兼容色,不能与网页背景相同,默认黑色 
 						}
-						if(document.getElementById(rang_id).value == 1) {
+						if(danmu_flag) {
 							$(id).barrager(item);
-							clearTimeout(json.timer);
+							clearTimeout(GLOBAL.timer);
 						} else {
-							clearTimeout(json.timer);
+							clearTimeout(GLOBAL.timer);
 							clear_barrage();
 						}
 					}, i * 1000)
@@ -812,50 +321,86 @@
 				$.fn.barrager.removeAll();
 				console.log($('.barrage'))
 			}
-			$("#to_big").click(function() {
-				clearTimeout(json.timer);
-
+			$(".to_big").click(function() {
+				
+				var bol=$(this).attr("bol")
+					document.getElementById("media").pause();
+				clearTimeout(GLOBAL.timer);
+                clear_barrage();
 				var width = $("body").width() * 2 / 100;
 				var height = $("body").height() * 2 / 100;
 
-				var video = "<div id='video_full_box'><video class='media' preload='auto' x5-video-player-type='h5' x-webkit-airplay='true' playsinline webkit-playsinline  src='img/VID_20171031_182625.mp4' style='position:absolute;top:0;left:0.01rem;width:7.5rem;height:13.34rem;border-radius:0 ;z-index:9997;'/></video>" +
+				var video = "<div id='video_full_box'><video  preload='auto' x5-video-player-type='h5' x-webkit-airplay='true' playsinline webkit-playsinline  src='img/VID_20171031_182625.mp4' style='position:absolute;top:0;left:0.01rem;width:7.5rem;height:13.34rem;border-radius:0 ;z-index:9997;'/></video>" +
 					"<div class='full_box_bottom'>" +
 					"<div id='stop_btn' style='width:0.8rem;height:0.8rem;background: rgba(255,255,255,0.30);border-radius:50%;position:relative;float:left;'><img src='img/Group 14.png'  style='width:0.29rem;height:0.29rem;position:absolute;top:0;bottom:0;right:0;left:0;margin:auto;'/></div>" +
 					"<span style='font-family: PingFangSC-Regular;font-size: 0.28rem;color: #FFFFFF;letter-spacing: 0;float:left;margin-left:0.22rem;position:relative;top:0.2rem'>4:30</span>" +
-					"<div style='float:right;width:0.8rem;height:0.4rem;margin-right:0.5rem;margin-top:0.75rem;'><input type='range' max='1' min='0' step='1' id='big_range' /><img src='img/Group 11.png' id='close_video' style='width:0.4rem;height:0.4rem;float:right;'/></div></div></div>"
+					"<div id='big_change' style='float:right;width:1.5rem;height:0.4rem;margin-right:0.5rem;margin-top:0.45rem;'><img src='img/QQ图片20171103140944.png' id='close_video' style='width:0.34rem;height:0.34rem;float:right;'/><div class='dan_mu'><img src='img/Group 6.png' style='width: 100%;height:auto;float: left;'/></div></div></div></div>"
 
 				$("body").append(video);
-				document.getElementById("video_full_box").children[0].play();
-				document.getElementById("video_full_box").children[0].currentTime = document.getElementsByClassName("media")[0].currentTime
-				document.getElementById("big_range").value = document.getElementById("run_range").value
+				GLOBAL.time=document.getElementById("media").currentTime
+				document.getElementById("video_full_box").children[0].currentTime = GLOBAL.time;
+				
+				console.log(document.getElementById("media").currentTime);
+				console.log(document.getElementById("video_full_box").children[0].currentTime);
 				$('#video_full_box').css({
 					"border-radius": "0",
 					"position": "fixed",
 					"width": "100%",
 					"height": "100%",
 					"background": "transparent",
-					"z-index": "10000",
+					"z-index": "9999",
 					"top": 0,
 					"left": 0
 				})
-				if(document.getElementById("video_full_box").children[0].readyState == 4) {
-					creat_barrae("#video_main_box", "run_range");
-				}
-				document.getElementById("big_range").onchange = function() {
-					if(document.getElementById("big_range").value == 0) {
+				
+				
+				
+						document.getElementById("video_full_box").children[0].play();
+							danmu_img();
+				
+				if(bol=="true"){
+					
+					document.getElementById("video_full_box").children[0].pause();
+					$("#stop_btn").hide();
+					var btn = '<div class="video_circle" style="z-index:99998"><img src="img/Triangle.png" /></div>'
+					$("#video_full_box").append(btn);
+					$("#video_full_box .video_circle").click(function() {
+						document.getElementById("video_full_box").children[0].play();
+						console.log(1)
+						$(this).remove();
+						$("#stop_btn").show()
+					})
+				}else{
+					if(danmu_flag) {
+					
+					creat_barrae("#video_full_box");
+				
 
-						clear_barrage("#video_full_box", "big_range");
-						clearTimeout(json.timer);
+				}
+				}
+				
+				$("#big_change .dan_mu").click(function(){
+					
+						danmu_flag=!danmu_flag
+            	    danmu_img();
+            	    console.log(danmu_flag)
+					if(danmu_flag==false) {
+
+						clear_barrage();
+						clearTimeout(GLOBAL.timer);
 
 					} else {
-						if(document.getElementById("video_full_box").children[0].readyState == 4) {
-							creat_barrae("#video_main_box", "run_range");
-						}
+						
+						
+							console.log(1)
+							creat_barrae("#video_full_box");
+						
 					}
-
-					document.getElementById("run_range").value = document.getElementById("big_range").value
-					document.getElementById("stop_range").value = document.getElementById("big_range").value
-				}
+					
+					
+				})
+				
+			
 
 				$("#stop_btn").click(function() {
 
@@ -872,14 +417,32 @@
 				})
 
 				$('#close_video').click(function() {
-					document.getElementsByClassName("media")[0].currentTime = document.getElementById("video_full_box").children[0].currentTime
-					$('#video_full_box').remove()
+					GLOBAL.time=document.getElementById("video_full_box").children[0].currentTime;
+					console.log(document.getElementById("video_full_box").children[0].paused)
+					if(	document.getElementById("video_full_box").children[0].paused){
+						
+					}else{
+						 $('#video_run_box').hide().siblings("#video_img_run").show()
+						  document.getElementById("media").currentTime = GLOBAL.time;
+						 document.getElementById("media").play();
+					}
+					
+					
+				document.getElementById("video_full_box").children[0].pause();
+				
+				
+					     $('#video_full_box').remove();
+					    
+					    
+						
+						
+					
 				})
 
 			})
 
 			$(".video_stop").click(function() {
-				document.getElementsByClassName("media")[0].pause();
+				document.getElementById("media").pause();
 				$(this).parent().parent("#video_img_run").hide().siblings("#video_run_box").show();
 				  
 			});

@@ -1,4 +1,4 @@
-.barrage{position: absolute;bottom:0px;right:-5rem;display: inline-block;width: 5rem;z-index: 99999}
+.barrage{position: absolute;bottom:0px;right:-5rem;display: inline-block;width: 5rem;z-index: 10002}
 .barrage_box{background-color: rgba(0,0,0,.5);padding-right: 0.08rem; height: 0.4rem;float: left;border-radius: 12px;transition: all .3s;}
 .barrage_box .portrait{float: left;margin-top: 0.04rem; margin-left: 0.04rem; width: 0.32rem;height: 0.32rem;border-radius: 50%;overflow: hidden;}
 .barrage_box .portrait img{float: left;width: 100%;height: 100%;}
