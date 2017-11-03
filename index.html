@@ -51,9 +51,12 @@
 					</div>
 					<div class="set_box">
 						<div style="height: 0.4rem;float: left;width: 100%;margin-bottom: 0.3rem;">
+<<<<<<< HEAD
 							<img src="img/Group.png" class="to_big"  style="width: auto;height: 100%;float: right;margin-right: 0.24rem;" />
 						</div>
 						<div style="height: 0.4rem;float: left;width: 100%;margin-bottom: 0.3rem;">
+=======
+>>>>>>> d5d3995d9bc971c0858e43a3e857d6afac6048d0
 							<img src="img/Group2.png" style="width: auto;height: 100%;float: right;margin-right: 0.24rem;" />
 						</div>
 						<div style="height: 0.4rem;float: left;width: 100%;">
@@ -81,14 +84,22 @@
 
 						</div>
 
+<<<<<<< HEAD
 						<span style="z-index: 99999;">4:30</span>
+=======
+						<span >4:30</span>
+>>>>>>> d5d3995d9bc971c0858e43a3e857d6afac6048d0
 					</div>
 					<div id="video_main_box" style="height: 100%;float: left;position: relative;">
 
 					</div>
 					<div class="video_sides video_run_right">
+<<<<<<< HEAD
 						<div style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: rgba(35,36,39,0.50);z-index: 10001;"></div>
 						<div style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;background:url(img/8CEBB20F-0614-B0CF-19A4-36186F4AB0F6.png)  no-repeat -7.8rem 0 ;background-size:10rem 100%;filter: blur(0.1rem);">
+=======
+						<div style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: black no-repeat -7.8rem 0 ;background-size:10rem 100%;filter: blur(0.1rem);">
+>>>>>>> d5d3995d9bc971c0858e43a3e857d6afac6048d0
 
 						</div>
 						<div class="video_run_set">
@@ -97,7 +108,11 @@
 							<img src="img/Group 6.png" style="float: left;width: auto;height:100% ;"/>
 						</div></li>
 
+<<<<<<< HEAD
 							<li style="height: 0.34rem;"><img src="img/Group.png" class="to_big" style="width: auto;height:100% ;"/></li>
+=======
+							<li style="height: 0.34rem;"><img src="img/Group.png" id="to_big" style="width: auto;height:100% ;"/></li>
+>>>>>>> d5d3995d9bc971c0858e43a3e857d6afac6048d0
 
 						</div>
 
@@ -187,10 +202,14 @@
 			
 			$("#video_main_box").css('width', "41.6%");
 			$(".video_sides").css("width", "29.2%");
+<<<<<<< HEAD
             	$(".set_box div .to_big").attr("bol","true");
             	$(".video_run_set li .to_big").attr("bol","false");
             	GLOBAL.time=0;
             	document.getElementById("media").currentTime=GLOBAL.time
+=======
+        
+>>>>>>> d5d3995d9bc971c0858e43a3e857d6afac6048d0
 			//弹幕数据
 			var arr = [{
 					name: "123",
@@ -258,7 +277,11 @@
                  danmu_img();
 				$(this).parent().parent().hide().siblings("#video_img_run").show();
 				document.getElementById("media").play();
+<<<<<<< HEAD
 				
+=======
+				GLOBAL.time=document.getElementById("media").currentTime
+>>>>>>> d5d3995d9bc971c0858e43a3e857d6afac6048d0
 				if(danmu_flag) {
 					if(document.getElementById("media").readyState == 4) {
 						creat_barrae("#video_main_box");
@@ -321,9 +344,13 @@
 				$.fn.barrager.removeAll();
 				console.log($('.barrage'))
 			}
+<<<<<<< HEAD
 			$(".to_big").click(function() {
 				
 				var bol=$(this).attr("bol")
+=======
+			$("#to_big").click(function() {
+>>>>>>> d5d3995d9bc971c0858e43a3e857d6afac6048d0
 					document.getElementById("media").pause();
 				clearTimeout(GLOBAL.timer);
                 clear_barrage();
@@ -334,7 +361,11 @@
 					"<div class='full_box_bottom'>" +
 					"<div id='stop_btn' style='width:0.8rem;height:0.8rem;background: rgba(255,255,255,0.30);border-radius:50%;position:relative;float:left;'><img src='img/Group 14.png'  style='width:0.29rem;height:0.29rem;position:absolute;top:0;bottom:0;right:0;left:0;margin:auto;'/></div>" +
 					"<span style='font-family: PingFangSC-Regular;font-size: 0.28rem;color: #FFFFFF;letter-spacing: 0;float:left;margin-left:0.22rem;position:relative;top:0.2rem'>4:30</span>" +
+<<<<<<< HEAD
 					"<div id='big_change' style='float:right;width:1.5rem;height:0.4rem;margin-right:0.5rem;margin-top:0.45rem;'><img src='img/QQ图片20171103140944.png' id='close_video' style='width:0.34rem;height:0.34rem;float:right;'/><div class='dan_mu'><img src='img/Group 6.png' style='width: 100%;height:auto;float: left;'/></div></div></div></div>"
+=======
+					"<div id='big_change' style='float:right;width:1.5rem;height:0.4rem;margin-right:0.5rem;margin-top:0.75rem;'><img src='img/QQ图片20171103140944.png' id='close_video' style='width:0.34rem;height:0.34rem;float:right;'/><div class='dan_mu'><img src='img/Group 6.png' style='width: 100%;height:auto;float: left;'/></div></div></div></div>"
+>>>>>>> d5d3995d9bc971c0858e43a3e857d6afac6048d0
 
 				$("body").append(video);
 				GLOBAL.time=document.getElementById("media").currentTime
@@ -353,6 +384,7 @@
 					"left": 0
 				})
 				
+<<<<<<< HEAD
 				
 				
 						document.getElementById("video_full_box").children[0].play();
@@ -372,13 +404,24 @@
 					})
 				}else{
 					if(danmu_flag) {
+=======
+						document.getElementById("video_full_box").children[0].play();
+							danmu_img();
+				if(danmu_flag) {
+>>>>>>> d5d3995d9bc971c0858e43a3e857d6afac6048d0
 					
 					creat_barrae("#video_full_box");
 				
 
+<<<<<<< HEAD
 				}
 				}
 				
+=======
+				}
+				
+				
+>>>>>>> d5d3995d9bc971c0858e43a3e857d6afac6048d0
 				$("#big_change .dan_mu").click(function(){
 					
 						danmu_flag=!danmu_flag
@@ -417,6 +460,7 @@
 				})
 
 				$('#close_video').click(function() {
+<<<<<<< HEAD
 					GLOBAL.time=document.getElementById("video_full_box").children[0].currentTime;
 					console.log(document.getElementById("video_full_box").children[0].paused)
 					if(	document.getElementById("video_full_box").children[0].paused){
@@ -437,6 +481,18 @@
 						
 						
 					
+=======
+				document.getElementById("video_full_box").children[0].pause();
+				GLOBAL.time=document.getElementById("video_full_box").children[0].currentTime;
+				
+						
+							console.log(GLOBAL.time)
+					     $('#video_full_box').remove();
+					     document.getElementById("media").currentTime = GLOBAL.time;
+						document.getElementById("media").play();
+						
+						console.log(document.getElementById("media").currentTime);
+>>>>>>> d5d3995d9bc971c0858e43a3e857d6afac6048d0
 				})
 
 			})
